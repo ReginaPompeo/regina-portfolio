@@ -1,27 +1,66 @@
-import React from 'react';
-import Fundo from '../assets/Fundo.gif';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Animacao from '../../assets/LogoR.png';
 import { FaGithub } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { Slide } from "react-awesome-reveal";
-import Animacao from '../assets/ApresentacaoR.gif';
 
-const Container = styled.div`
+const ProfComponent = () => {
+    return (
+      <Container id="header">
+        <Slide direction="left">
+          <Texts>
+            <h4>
+              Hello World! <span className="pink">Eu sou</span>
+            </h4>
+            <h1 className="pink">Regina Pompeo</h1>
+            <h3>Desenvolvedora Full Stack</h3>
+            <p>
+            Desvende o meu mundo criativo 
+            e mergulhe na essência por trás das minhas criações.
+            </p>
+            <p>
+            Estou pronto para compartilhar minha história com você.
+            </p>
+            <button>Vamos conversar</button>
+            <Social>
+              <p>Confira as minhas redes sociais</p>
+              <div className="social-icons">
+                <span>
+                  <a href="/">
+                    <FaGithub />
+                  </a>
+                </span>
+                <span>
+                  <a href="/">
+                    <MdEmail />
+                  </a>
+                </span>
+                <span>
+                  <a href="/">
+                    <FaLinkedinIn />
+                  </a>
+                </span>
+              </div>
+            </Social>
+          </Texts>
+       </Slide>
+        <Slide direction="right">
+          <Filter>
+            <Profile />
+            <Img src={Animacao}
+            />
+          </Filter>
+    </Slide>
+      </Container>
+    );
+  };
+  
+  export default ProfComponent;
+
+  const Container = styled.div`
   display: flex;
-  gap: 2rem;
-  padding: 3rem 5rem;
-  width: 100%;
-  margin: 0 auto;
-  min-height: 100vh;
-  z-index: 1;
-  background-image: url(${Fundo});
-  background-size: cover;
-  align-items: center;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-  }
 `;
 const Texts = styled.div`
   flex: 1;
@@ -163,57 +202,3 @@ const Img = styled.img`
     transform: translateY(-10px);
   }
 `;
-
-
-const ProfComponent = () => {
-  return (
-    <Container id="header">
-      <Slide direction="left">
-        <Texts>
-          <h4>
-            Hello World! <span className="pink">Eu sou</span>
-          </h4>
-          <h1 className="pink">Regina Pompeo</h1>
-          <h3>Desenvolvedora Full Stack</h3>
-          <p>
-          Desvende o meu mundo criativo 
-          e mergulhe na essência por trás das minhas criações.
-          </p>
-          <p>
-          Estou pronto para compartilhar minha história com você.
-          </p>
-          <button>Vamos conversar</button>
-          <Social>
-            <p>Confira as minhas redes sociais</p>
-            <div className="social-icons">
-              <span>
-                <a href="/">
-                  <FaGithub />
-                </a>
-              </span>
-              <span>
-                <a href="/">
-                  <MdEmail />
-                </a>
-              </span>
-              <span>
-                <a href="/">
-                  <FaLinkedinIn />
-                </a>
-              </span>
-            </div>
-          </Social>
-        </Texts>
-     </Slide>
-      <Slide direction="right">
-        <Filter>
-          <Profile />
-          <Img src={Animacao}
-          />
-        </Filter>
-  </Slide>
-    </Container>
-  );
-};
-
-export default ProfComponent;
