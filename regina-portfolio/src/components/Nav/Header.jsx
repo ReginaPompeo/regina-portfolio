@@ -31,6 +31,47 @@ const Header = () => {
 
 export default Header;
 
-const Container = styled.div``
+const Container = styled.div`
+  display: flex;
+  text-align: right;
+  justify-content: flex-end; /* Alterado para flex-end */
+  width: 80%;
+  padding: 1.5rem 0;
+  position: relative;
+  animation: header 500ms ease-in-out;
+`;
 
-const Nav = styled.div``
+const Nav = styled.nav`
+  // Estilos do seu componente Nav
+   span {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    letter-spacing: 1px;
+    a {
+       color: #D9D9D9;
+      text-decoration: none;
+      position: relative;
+      font-weight: 530;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px; /* Altura do sublinhado */
+        background-color: #D9D9D9; /* Cor do sublinhado */
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+    }
+  }
+`;
+

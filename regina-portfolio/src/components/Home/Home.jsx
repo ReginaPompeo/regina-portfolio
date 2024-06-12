@@ -48,7 +48,6 @@ const ProfComponent = () => {
        </Slide>
         <Slide direction="right">
           <Filter>
-            <Profile />
             <Img src={Animacao}
             />
           </Filter>
@@ -60,10 +59,13 @@ const ProfComponent = () => {
   export default ProfComponent;
 
   const Container = styled.div`
+  align-items: center;
   display: flex;
+  width: 80%;
+  height: 90vh;
+  gap: 15rem;
 `;
 const Texts = styled.div`
-  flex: 1;
   h4 {
     padding: 1rem 0;
     font-weight: 500;
@@ -94,6 +96,7 @@ const Texts = styled.div`
     cursor: pointer;
     background-color: #D9D9D9;
     border: none;
+    font-size: 1rem;
     color: #b33ec2;
     font-weight: 1000;
     filter: drop-shadow(0px 10px 10px #01be9551);
@@ -126,9 +129,6 @@ const Social = styled.div`
       border-radius: 50%;
       position: relative;
       transition: transform 400ms ease-in-out;
-      :hover {
-        transform: rotate(360deg);
-      }
     }
 
     a {
@@ -142,43 +142,16 @@ const Social = styled.div`
 `;
 
 export const Filter = styled.div`
-  height: 100%;
   filter: drop-shadow(0px 0px 15px #01be9570);
 `;
 
-const Profile = styled.div`
-  padding: 3rem 50rem;
-  width: 25rem;
-  height: 25rem;
-  position: absolute;
-
-  transition: transform 400ms ease-in-out;
-  @media (max-width: 790px) {
-    width: 20rem;
-    height: 20rem;
-  }
-
-  @media (max-width: 660px) {
-    width: 18rem;
-    height: 18rem;
-  }
-
-  @media (max-width: 640px) {
-    width: 100%;
-    height: 100%;
-  }
-
-  :hover img {
-    transform: translateY(-10px);
-  }
-`;
 
 const Img = styled.img`
   width: 25rem;
   height: 25rem;
   text-align: center;
-
   transition: transform 400ms ease-in-out;
+  display: flex;
   @media (max-width: 790px) {
     width: 20rem;
     height: 20rem;
