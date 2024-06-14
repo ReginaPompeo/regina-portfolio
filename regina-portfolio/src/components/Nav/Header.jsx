@@ -36,7 +36,6 @@ const Container = styled.div`
   text-align: right;
   justify-content: flex-end; /* Alterado para flex-end */
   width: 80%;
-  padding: 1.5rem 0;
   position: relative;
   animation: header 500ms ease-in-out;
 `;

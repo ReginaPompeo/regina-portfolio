@@ -12,7 +12,7 @@ const ProfComponent = () => {
         <Slide direction="left">
           <Texts>
             <h4>
-              Hello World! <span className="pink">Eu sou</span>
+              Hello World! Eu sou
             </h4>
             <h1 className="pink">Regina Pompeo</h1>
             <h3>Desenvolvedora Full Stack</h3>
@@ -63,7 +63,7 @@ const ProfComponent = () => {
   display: flex;
   width: 80%;
   height: 90vh;
-  gap: 15rem;
+  gap: 10rem;
 `;
 const Texts = styled.div`
   h4 {
