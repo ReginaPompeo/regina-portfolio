@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import slideData from "./Project";
+import ProjectCard from "./ProjectCard"; // Importe o componente ProjectCard
+import slideData from "./Project"; // Certifique-se de que o caminho esteja correto
 
 const SliderComp = () => {
   const [current, setCurrent] = useState(0);
+  const [showCard, setShowCard] = useState(false); // Estado para controlar se o card está aberto
   const length = slideData.length;
 
   const nextSlide = () => {
@@ -12,6 +14,14 @@ const SliderComp = () => {
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  const openCard = () => {
+    setShowCard(true);
+  };
+
+  const closeCard = () => {
+    setShowCard(false);
   };
 
   if (!Array.isArray(slideData) || slideData.length <= 0) {
@@ -26,12 +36,20 @@ const SliderComp = () => {
         <Slide key={index} isActive={index === current}>
           {index === current && (
             <>
-              <img src={slide.image} alt={slide.title} />
-              <Description>{slide.description}</Description>
+              <ImageContainer onClick={openCard}>
+                <img src={slide.image} alt={slide.title} />
+                <Title>{slide.title}</Title>
+              </ImageContainer>
             </>
           )}
         </Slide>
       ))}
+      {showCard && (
+        <ProjectCard
+          project={slideData[current]}
+          onClose={closeCard}
+        />
+      )}
     </SliderContainer>
   );
 };
@@ -44,47 +62,45 @@ const SliderContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
 `;
 
 const Slide = styled.div`
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 0.5s ease;
-  position: absolute;
+  position: relative;
+  text-align: center;
+`;
 
+const ImageContainer = styled.div`
+  cursor: pointer; /* Adicionado para indicar que é clicável */
   img {
-    width: 80%;
-    height: auto;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 `;
 
-const Description = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  width: 80%;
+const Title = styled.h2`
+  font-size: 1.5em;
+  color: #333;
 `;
 
 const Arrow = styled.div`
   position: absolute;
-  top: 50%;
   font-size: 2rem;
   color: white;
-  z-index: 10;
   cursor: pointer;
   user-select: none;
+  transform: translateY(-50%);
 `;
 
 const LeftArrow = styled(Arrow)`
-  left: 32px;
+  left: -50px;
 `;
 
 const RightArrow = styled(Arrow)`
-  right: 32px;
+  right: -50px;
 `;
